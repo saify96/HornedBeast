@@ -1,14 +1,18 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card'
 
 class Footer extends React.Component {
 
-    render(){
-        return  (
+    render() {
+        return (
             <div >
-                <p>Done by mohammad alsaify</p>
-            </div>   
-         )
+
+                <Card className="text-center">
+                    <Card.Footer className="text-muted">Done by mohammad alsaify</Card.Footer>
+                </Card>
+            </div>
+        )
     }
 }
 
-export default Footer ;
+export default Footer;
