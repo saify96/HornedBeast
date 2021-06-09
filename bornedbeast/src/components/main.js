@@ -30,22 +30,33 @@ import React from 'react';
 import HornedBeast from './HornedBeast';
 import HornedBeastobjects from './data.json';
 
-        class Main extends React.Component {
-        
-            render(){
-                return(
-                  HornedBeastobjects.map((value)=>{     
-                    return(                  
-                        <HornedBeast 
-                            title= {value.title}
-                            image_url = {value.image_url}
-                            description = {value.description}
-                        /> 
-                    )
-                    })
+class Main extends React.Component {
+    render() {
+        return (
+            <div>{
+                HornedBeastobjects.map((value) => {
+                    if (this.props.numberOfHorns == 0) {
+                        return (
+                            <HornedBeast
+                                title={value.title}
+                                image_url={value.image_url}
+                                description={value.description}
+                            />
+                        )
+                    } else if (this.props.numberOfHorns == value.horns) {
+                        return (
+                            <HornedBeast
+                                title={value.title}
+                                image_url={value.image_url}
+                                description={value.description}
+                            />
+                        )
+                    }
+                }
                 )
-        }
+            } </div>
+        )
     }
-        
+}
 
-export default Main ;
+export default Main;
