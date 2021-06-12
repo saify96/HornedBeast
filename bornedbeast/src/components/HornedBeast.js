@@ -16,8 +16,6 @@ class HornedBeast extends React.Component {
     voting = () => {
         let count = this.state.votes;
         this.setState({ votes: count += 1 })
-        this.props.setModalShow();
-        this.props.setModalContent(this.props.title, this.props.image_url, this.props.description);
     }
 
     render() {
