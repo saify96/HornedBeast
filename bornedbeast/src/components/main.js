@@ -28,19 +28,22 @@
 
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import HornedBeastobjects from './data.json';
 
         class Main extends React.Component {
         
             render(){
                 return(
-                  HornedBeastobjects.map((value)=>{     
+                  this.props.Data.map((value)=>{     
                     return(                  
-                        <HornedBeast 
+                        <HornedBeast key={value.title}
                             title= {value.title}
                             image_url = {value.image_url}
                             description = {value.description}
-                        /> 
+                            show={this.props.show} 
+                            onHide={() => this.props.onHide(false)}
+                            setModalShow={() => this.props.setModalShow(true)}
+                            setModalContent={this.props.setModalContent}           
+                        />
                     )
                     })
                 )
