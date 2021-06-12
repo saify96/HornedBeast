@@ -9,7 +9,7 @@ class Header extends React.Component {
             <div >
                 <Navbar bg="primary" variant="dark">
                     <Container>
-                        <Navbar.Brand href="#home">Horned Beast</Navbar.Brand>
+                        <Navbar.Brand href="#home">Gallery Of Horns</Navbar.Brand>
                     </Container>
                 </Navbar>
 

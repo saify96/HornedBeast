@@ -6,7 +6,7 @@ import Data from './components/data.json';
 import SelectedBeast from './components/SelectedBeast';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import AnimalForm from './components/AnimalForm';
 
 class App extends React.Component {
 
@@ -32,9 +32,16 @@ class App extends React.Component {
       modalImg : img,
       modalDescription: description
     })
+
+  chooseNumOfHorns = (event) => {
+    this.setState({
+      numberOfHorns: event.target.value
+    })
+    event.preventDefault();
   }
 
   render() {
+    console.log(this.state.numberOfHorns);
     return (
       <div>
         <Header />
@@ -44,13 +51,14 @@ class App extends React.Component {
         setModalShow={() => this.setModalShow(true)}
         setModalContent={this.setModalContent}
         Data={Data}
-        
         />
         <SelectedBeast show={this.state.modalShow} 
         onHide={() => this.setModalShow(false)}
         title={this.state.modalTitle}
         img={this.state.modalImg}
         description={this.state.modalDescription}
+        <AnimalForm
+          chooseNumOfHorns={this.chooseNumOfHorns}
         />
         <Footer />
       </div>

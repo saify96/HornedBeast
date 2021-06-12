@@ -29,12 +29,13 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
 
-        class Main extends React.Component {
-        
-            render(){
-                return(
-                  this.props.Data.map((value)=>{     
-                    return(                  
+class Main extends React.Component {
+    render() {
+        return (
+            <div>{
+                HornedBeastobjects.map((value) => {
+                    if (this.props.numberOfHorns == 0) {
+                        return (
                         <HornedBeast key={value.title}
                             title= {value.title}
                             image_url = {value.image_url}
@@ -44,11 +45,25 @@ import HornedBeast from './HornedBeast';
                             setModalShow={() => this.props.setModalShow(true)}
                             setModalContent={this.props.setModalContent}           
                         />
-                    )
-                    })
+                        )
+                    } else if (this.props.numberOfHorns == value.horns) {
+                        return (
+                        <HornedBeast key={value.title}
+                            title= {value.title}
+                            image_url = {value.image_url}
+                            description = {value.description}
+                            show={this.props.show} 
+                            onHide={() => this.props.onHide(false)}
+                            setModalShow={() => this.props.setModalShow(true)}
+                            setModalContent={this.props.setModalContent}           
+                        />
+                        )
+                    }
+                }
                 )
-        }
+            } </div>
+        )
     }
-        
+}
 
-export default Main ;
+export default Main;
