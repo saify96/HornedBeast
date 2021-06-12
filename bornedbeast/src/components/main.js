@@ -28,6 +28,7 @@
 
 import React from 'react';
 import HornedBeast from './HornedBeast';
+import HornedBeastobjects from './data.json';
 
 class Main extends React.Component {
     render() {
@@ -36,27 +37,19 @@ class Main extends React.Component {
                 HornedBeastobjects.map((value) => {
                     if (this.props.numberOfHorns == 0) {
                         return (
-                        <HornedBeast key={value.title}
-                            title= {value.title}
-                            image_url = {value.image_url}
-                            description = {value.description}
-                            show={this.props.show} 
-                            onHide={() => this.props.onHide(false)}
-                            setModalShow={() => this.props.setModalShow(true)}
-                            setModalContent={this.props.setModalContent}           
-                        />
+                            <HornedBeast
+                                title={value.title}
+                                image_url={value.image_url}
+                                description={value.description}
+                            />
                         )
                     } else if (this.props.numberOfHorns == value.horns) {
                         return (
-                        <HornedBeast key={value.title}
-                            title= {value.title}
-                            image_url = {value.image_url}
-                            description = {value.description}
-                            show={this.props.show} 
-                            onHide={() => this.props.onHide(false)}
-                            setModalShow={() => this.props.setModalShow(true)}
-                            setModalContent={this.props.setModalContent}           
-                        />
+                            <HornedBeast
+                                title={value.title}
+                                image_url={value.image_url}
+                                description={value.description}
+                            />
                         )
                     }
                 }
